@@ -34,9 +34,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request){
 });
 
 
-
-
 Route::middleware('auth:sanctum')->group(function(){
+
+
+});
+
 
 //traer informacion general
 Route::get('aulas' ,[AulasController::class, 'index']); 
@@ -69,14 +71,6 @@ Route::post('registro' ,[RegistroController::class, 'store']);
 Route::get('registro/{id}' ,[RegistroController::class, 'show']);
 //eliminar
 Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
-
-
-});
-
-
-
-
-//guardar info
 
 
 
