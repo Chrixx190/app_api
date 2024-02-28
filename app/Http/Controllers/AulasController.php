@@ -16,7 +16,6 @@ class AulasController extends Controller
         $data =[
             'aulas' => $aulas
         ];
-
         return response()->json($data, 200);
     }
 

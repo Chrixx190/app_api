@@ -26,18 +26,21 @@ Route::post('login' ,[AuthController::class, 'login']);
 Route::post('register' ,[AuthController::class, 'register']);
 Route::post('logout' ,[AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-   
+
+Route::get('/backup', [AuthController::class, 'backupdatabase'])->name('backupdatabase');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return $request->user();
 });
 
-
-
-
 Route::middleware('auth:sanctum')->group(function(){
+    //aqui dentro irian las apis que se quieran consumir si es que esta iniciada la sesion
+});
 
+
+
+    
 //traer informacion general
 Route::get('aulas' ,[AulasController::class, 'index']); 
  
@@ -71,12 +74,17 @@ Route::get('registro/{id}' ,[RegistroController::class, 'show']);
 Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
 
 
-});
 
 
 
 
-//guardar info
+
+
+
+
+
+
+
 
 
 
