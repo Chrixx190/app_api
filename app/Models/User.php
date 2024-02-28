@@ -22,9 +22,6 @@ class User extends Authenticatable
         'apellido',
         'cargo',
         'rol',
-        'modulo_1',
-        'modulo_2',
-        'modulo_3',
         'email',
         'password',
     ];
