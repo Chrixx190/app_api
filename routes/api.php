@@ -34,13 +34,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return $request->user();
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11f54d52c7eb6f14a3967a91c652b02d68f2b8cd
 Route::middleware('auth:sanctum')->group(function(){
     //aqui dentro irian las apis que se quieran consumir si es que esta iniciada la sesion
 });
 
 
+<<<<<<< HEAD
 
     
+=======
+});
+
+
+>>>>>>> 11f54d52c7eb6f14a3967a91c652b02d68f2b8cd
 //traer informacion general
 Route::get('aulas' ,[AulasController::class, 'index']); 
  
@@ -74,6 +84,7 @@ Route::get('registro/{id}' ,[RegistroController::class, 'show']);
 Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
 
 
+<<<<<<< HEAD
 
 
 
@@ -87,6 +98,8 @@ Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
 
 
 
+=======
+>>>>>>> 11f54d52c7eb6f14a3967a91c652b02d68f2b8cd
 
 
 
