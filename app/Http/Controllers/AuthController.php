@@ -10,6 +10,16 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+
+
+    public function allUsers(){
+        $usuarios = User::all();
+        $data =[
+            'usuarios' => $usuarios
+        ];
+        return response()->json($data, 200);
+    }
+
     public function register(Request $request){
         $attrs = $request->validate([
            'nombre'=> 'required|string',

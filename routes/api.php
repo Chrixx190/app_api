@@ -40,6 +40,10 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 
+//traer informacion de los usuarios
+Route::get('users' ,[AuthController::class, 'allUsers']); 
+
+
 //traer informacion general
 Route::get('aulas' ,[AulasController::class, 'index']); 
  
