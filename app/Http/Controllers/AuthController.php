@@ -14,6 +14,10 @@ use App\Models\User;
 class AuthController extends Controller
 {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/master
     public function createBackup()
     {
     
@@ -23,6 +27,18 @@ class AuthController extends Controller
 
         
         return new BinaryFileResponse($backupPath);
+<<<<<<< HEAD
+=======
+=======
+
+    public function allUsers(){
+        $usuarios = User::all();
+        $data =[
+            'usuarios' => $usuarios
+        ];
+        return response()->json($data, 200);
+>>>>>>> 9d5c9080ecb3596085047bb93ab546a37ddc8a39
+>>>>>>> refs/remotes/origin/master
     }
 
     public function register(Request $request){
@@ -31,9 +47,6 @@ class AuthController extends Controller
            'apellido'=> 'required|string',
            'cargo'=> 'required|string',
            'rol'=> 'required|string',
-           'modulo_1'=> 'required|string',
-           'modulo_2'=> 'required|string',
-           'modulo_3'=> 'required|string',
            'email'=> 'required|email|unique:users,email',
            'password'=> 'required|min:6',
         ]);
@@ -43,9 +56,6 @@ class AuthController extends Controller
             'apellido' => $attrs['apellido'],
             'cargo' => $attrs['nombre'],
             'rol' => $attrs['rol'],
-            'modulo_1' => $attrs['modulo_1'],
-            'modulo_2' => $attrs['modulo_2'],
-            'modulo_3' => $attrs['modulo_3'],
             'email' => $attrs['email'],
             'password' => bcrypt($attrs['password']),
         ]);

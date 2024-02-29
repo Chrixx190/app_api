@@ -39,6 +39,11 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> refs/remotes/origin/master
 //traer informacion general
 Route::get('aulas' ,[AulasController::class, 'index']); 
  
@@ -81,6 +86,11 @@ Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/origin/master
 
 
 
