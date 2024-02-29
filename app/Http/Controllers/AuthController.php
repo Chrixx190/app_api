@@ -6,10 +6,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use App\Models\User;
 
 class AuthController extends Controller
 {
+
+    public function createBackup()
+    {
+    
+        Artisan::call('backup:run');
+        
+        $backupPath = storage_path('app/backup/' . now()->format('Y-m-d-His'));
+
+        
+        return new BinaryFileResponse($backupPath);
+    }
+
     public function register(Request $request){
         $attrs = $request->validate([
            'nombre'=> 'required|string',
