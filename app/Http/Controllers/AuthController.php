@@ -14,6 +14,7 @@ use App\Models\User;
 class AuthController extends Controller
 {
 
+<<<<<<< HEAD
     public function createBackup()
     {
     
@@ -23,6 +24,15 @@ class AuthController extends Controller
 
         
         return new BinaryFileResponse($backupPath);
+=======
+
+    public function allUsers(){
+        $usuarios = User::all();
+        $data =[
+            'usuarios' => $usuarios
+        ];
+        return response()->json($data, 200);
+>>>>>>> 9d5c9080ecb3596085047bb93ab546a37ddc8a39
     }
 
     public function register(Request $request){
