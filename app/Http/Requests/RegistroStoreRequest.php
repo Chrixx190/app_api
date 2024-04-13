@@ -23,15 +23,13 @@ class RegistroStoreRequest extends FormRequest
     {
         if (request()->isMethod('post')) {
             return [
-                'id_est' => 'int|max:11',
-                'asistencia_ad' => 'int|max:4',
-                'fecha_ad' => 'date',
+                'id_aula' => 'int',
+                'fecha_registro' => 'date',
             ];
         } else {
             return [
-                'id_est' => 'int|max:11',
-                'asistencia_ad' => 'int|max:4',
-                'fecha_ad' => 'date',
+                'id_aula' => 'int',
+                'fecha_registro' => 'date',
             ];
             
         }

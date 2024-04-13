@@ -17,6 +17,8 @@ class AuthController extends Controller
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
     public function createBackup()
     {
@@ -30,6 +32,7 @@ class AuthController extends Controller
 <<<<<<< HEAD
 =======
 =======
+>>>>>>> 58bdd88a1abe1275dc096010f7f44d805fd39e77
 
     public function allUsers(){
         $usuarios = User::all();
@@ -37,8 +40,11 @@ class AuthController extends Controller
             'usuarios' => $usuarios
         ];
         return response()->json($data, 200);
+<<<<<<< HEAD
+=======
 >>>>>>> 9d5c9080ecb3596085047bb93ab546a37ddc8a39
 >>>>>>> refs/remotes/origin/master
+>>>>>>> 58bdd88a1abe1275dc096010f7f44d805fd39e77
     }
 
     public function register(Request $request){
@@ -83,6 +89,7 @@ class AuthController extends Controller
 
         return response()->json([
             'token' => $user->createToken('secret')->plainTextToken,
+            'user'=> $user,
             'token_type' => 'Bearer',
         ]);
     }
@@ -93,6 +100,25 @@ class AuthController extends Controller
         return response()->json([
             "message"=>"Se ha cerrado la sesion"
         ]);
+    }
+
+
+    public function userDelete($id){
+        // Detail 
+        $usuario = User::find($id);
+        if(!$usuario){
+          return response()->json([
+             'message'=>'Usuario no encontrado.'
+          ],404);
+        }
+      
+        // Delete Product
+        $usuario->delete();
+      
+        // Return Json Response
+        return response()->json([
+            'message' => "Se ha eliminado correctamente."
+        ],200);
     }
 
     public function user(){

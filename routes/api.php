@@ -40,7 +40,17 @@ Route::middleware('auth:sanctum')->group(function(){
 
 
 <<<<<<< HEAD
+//traer informacion de los usuarios
+Route::get('users' ,[AuthController::class, 'allUsers']);
+
+
+Route::get('user' ,[AuthController::class, 'user']);
+Route::delete('userdelete/{id}' ,[AuthController::class, 'userDelete']);
+
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 58bdd88a1abe1275dc096010f7f44d805fd39e77
 
     
 >>>>>>> refs/remotes/origin/master
@@ -61,6 +71,8 @@ Route::get('estudiantes' ,[EstudiantesController::class, 'index']);
 Route::post('estudiantes' ,[EstudiantesController::class, 'store']);
 //obtener aulas con el id
 Route::get('estudiantes/{id}' ,[EstudiantesController::class, 'show']);
+//obtener aulas con el id
+Route::get('estudiantescursos/{id}' ,[EstudiantesController::class, 'studentsCourses']);
 //eliminar
 Route::delete('estudiantesdelete/{id}', [EstudiantesController::class, 'destroy']);
 
@@ -71,10 +83,25 @@ Route::delete('estudiantesdelete/{id}', [EstudiantesController::class, 'destroy'
 Route::get('registro' ,[RegistroController::class, 'index']);
 //guardar info
 Route::post('registro' ,[RegistroController::class, 'store']);
+//guardar info
+Route::post('registroasistencia' ,[RegistroController::class, 'storeRegistro']);
 //obtener aulas con el id
 Route::get('registro/{id}' ,[RegistroController::class, 'show']);
+Route::get('registroReporte/{fecha}/{curso}', [RegistroController::class, 'showReporte']);
+
+//obtener aulas con el id de aula
+Route::get('registroaula/{id}' ,[RegistroController::class, 'todosRegistrosPorAula']);
 //eliminar
 Route::delete('registrodelete/{id}', [RegistroController::class, 'destroy']);
+
+
+
+
+//eliminar los registros
+Route::delete('detalledelete/{id}', [RegistroController::class, 'deleteRegister']);
+
+//Route::post('registroasistencia' ,[RegistroController::class, 'storeAsistencia']);
+
 
 
 

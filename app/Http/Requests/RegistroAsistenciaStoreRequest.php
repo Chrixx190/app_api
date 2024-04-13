@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EstudiantesStoreRequest extends FormRequest
+class RegistroAsistenciaStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,15 @@ class EstudiantesStoreRequest extends FormRequest
     {
         if (request()->isMethod('post')) {
             return [
-                'nombre_es' => 'string|max:150',
-                'id_aulas' => 'int'
+                'id_est' => 'int',
+                'asistencia_ad' => 'int',
+                'id_registro_persona'=> 'int'
             ];
         } else {
             return [
-                'nombre_es' => 'string|max:150',
-                'id_aulas' => 'int'
+                'id_est' => 'int',
+                'asistencia_ad' => 'int',
+                'id_registro_persona'=> 'int'
             ];
             
         }

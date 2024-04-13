@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Registro extends Model
+class DetalleRegistros extends Model
 {
-    public $table = 'registro';
+    public $table = 'registro_persona';
     use HasFactory;
     protected $fillable = [
-        'id_est',
-        'asistencia_ad',
-        'id_registro_persona',
+        'id',
+        'id_aula',
+        'fecha_registro',
     ];
 }

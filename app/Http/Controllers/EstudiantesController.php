@@ -16,7 +16,6 @@ class EstudiantesController extends Controller
         $data =[
             'estudiantes' => $estudiantes
         ];
-
         return response()->json($data, 200);
     }
 
@@ -28,12 +27,11 @@ class EstudiantesController extends Controller
                 'nombre_es' => $request->nombre_es,
                 'id_aulas' => $request->id_aulas,
             ]); 
-            
             return response()->json([
                 'message' => 'Se ha registrado la informacion del estudiante'
              ],200);
 
-        } catch (\Exception $e){
+        } catch (Exception $e){
             return response()->json([
                //'message' => 'Error en el registro'
                'message' => $e
@@ -58,6 +56,31 @@ class EstudiantesController extends Controller
     }
 
 
+    public function studentsCourses($id)
+    {
+       
+       /* $estudiantes = Estudiantes::find($id);
+       if(!$estudiantes){
+         return response()->json([
+            'message'=>'Estudiante No Encontrado.'
+         ],404);
+       } */
+
+       if($id!=0){
+        $aulas = Estudiantes::where('id_aulas',$id)->get();
+        $data=$data =[
+            'estudiantes' => $aulas
+        ];
+        return response()->json($data);
+      }
+      
+      return response([
+        'status' => 'error',
+        'description' => 'Error al traer el estudiante por el id de `aula`',
+   ], 422); 
+    }
+
+
     public function destroy($id)
     {
         // Detail 
@@ -76,4 +99,5 @@ class EstudiantesController extends Controller
             'message' => "Se ha eliminado correctamente."
         ],200);
     }
+
 }
